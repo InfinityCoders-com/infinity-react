@@ -1,0 +1,142 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/*=============================================================*/
+
+.invoice-print {
+  // width: 700px;
+  min-height: 100vh;
+  padding: 20px 1vw;
+}
+
+
+.invoice-print table.container {
+  width: 600px;
+  background: #e6e6e6;
+  box-shadow: -15px 14px 105px -17px rgba(128, 128, 128, 1), 15px -15px 66px -15px rgba(255, 255, 255, .6);
+  transition: .6s;
+  opacity: 0;
+  animation: bg-image-borders-fade 3s linear 1s forwards;
+}
+
+@keyframes bg-image-borders-fade {
+  from { border: 1px solid #ccc; opacity: 0;}
+  to { border: 0px solid transparent; box-shadow: 0 0 0 0 transparent; opacity: 1; }
+}
+
+.invoice-print table.container:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 50px;
+  top: 50px;
+  right: 50px;
+  bottom: 50px;
+  width: 600px;
+  height: 800px;
+  z-index: 1;
+  opacity: 1;
+  background: url('../img/domain-hosting.jpg') center center no-repeat;
+  background-size: cover;
+  animation: bg-image-fade 1s linear 2s forwards;
+}
+
+@keyframes bg-image-fade {
+  from { opacity: 1; }
+  to { opacity: .1; left: 0px; top: 0px; right: 0px; bottom: 0px; height: 900px; width: 700px; }
+}
+
+.invoice-print table.container:hover {
+  box-shadow: 0 0 50px -5px rgba(128, 128, 128, 1);
+  transition: .6s;
+}
+
+.invoice-print .banner-form {
+  width: 700px;
+  position: absolute;
+  background: #cc2b23;
+  height: 300px;
+  top: 300px;
+  left: 0;
+  right: 0;
+  padding-top: 85px;
+  animation: remove-banner-form 3s linear 1s forwards;
+  z-index: 2;
+}
+
+@keyframes remove-banner-form {
+  0% { opacity: 1; }
+  100% { opacity: 1; width: 200px; height: 60px; top: 0; padding-top: 0;}
+}
+
+.invoice-print .banner-form::after {
+  content: '';
+  display: block;
+  width: 350px;
+  height: 300px;
+  background: #cc2b23;
+  position: absolute;
+  top: 100%;
+  animation: remove-banner-form-after 3s linear 1s forwards;
+}
+
+@keyframes remove-banner-form-after {
+  0% { opacity: 1; }
+  100% { opacity: 1; width: 60px; height: 140px; top: 100%; left: 0; }
+}
+
+.invoice-print .banner-form h1, .invoice-print .banner-form h3 {
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-family: 'freight-text-pro2';
+  animation: fade-text 1s ease-in-out 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-text {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/*=============================================================*/
+
+table {
+    font-family: 'lora';
+    margin: 60px 0 0 65px !important;
+}
+tr {
+    height: 14px;
+    background: #fff;
+}
+i {
+    font-family: 'lora';
+    font-style: italic;
+    font-size: 11px;
+}
+b i {
+    font-family: 'lora-bold-italic';
+    font-style: italic;
+    font-weight: 700;
+}
+th, td {
+    font-size: 12px;
+    border-collapse: collapse;
+    overflow: hidden;
+    width: 50px;
+    line-height: 1;
+    text-align: left;
+    vertical-align: middle;
+}
+.upper-triangle {
+    background: #fff;
+    -webkit-clip-path: polygon(10% 0%, 50% 60%, 90% 0%);
+    clip-path: polygon(10% 0%, 50% 60%, 90% 0%);
+}
