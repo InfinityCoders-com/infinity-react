@@ -1,0 +1,104 @@
+@import '../config/colors.scss';
+
+.menu-icon {
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    z-index: 99999;
+    transform: scale(.6);
+    .wrapper-menu {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: transform 330ms ease-out;
+        &.open {
+            transform: rotate(-45deg);  
+            .line-menu {
+                &.start {
+                    transform: rotate(-90deg) translateX(3px);
+                }
+                &.end {
+                    transform: rotate(-90deg) translateX(-3px);
+                }
+            }
+        }
+        .line-menu {
+            background-color: $black;
+            border-radius: 5px;
+            width: 100%;
+            height: 6px;
+            &.half {
+                width: 50%;
+            }
+            &.start {
+                transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+                transform-origin: right;
+            }
+            &.end {
+                align-self: flex-end;
+                transition: transform 330ms cubic-bezier(0.54, -0.81, 0.57, 0.57);
+                transform-origin: left;
+            }
+        }
+    }  
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: $white;
+    display: none;
+    flex-wrap: wrap;
+    &.open {
+        display: flex;
+    }
+    > div {
+        flex-basis: 50vw;
+        height: 50vh;
+        padding-top: 20vh;
+        padding-bottom: 20vh;
+        text-align: center;
+        &.flip-container {
+            padding: 0;
+            perspective: 1000px;
+            &:hover .flipper {
+                transform: rotateY(180deg);
+            }
+            &.hover .flipper {
+                transform: rotateY(180deg);
+            }
+            .flipper {
+                height: 100%;
+                width: 100%;
+                transition: 0.6s;
+                transform-style: preserve-3d;
+                position: relative;
+            }
+            .front, .back {
+                height: 100%;
+                width: 100%;
+                backface-visibility: hidden;            
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .front {
+                background: black;
+                z-index: 2;
+                transform: rotateY(0deg);
+            }
+            .back {
+                background: green;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
