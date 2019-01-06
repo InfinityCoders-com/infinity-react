@@ -1,0 +1,42 @@
+.login {
+  display: block;
+  position: fixed;
+  background: #141d32;
+  width: 100vw;
+  padding: 2vh 0;
+  top: 50%;
+  transform: translateY(-50%); }
+  .login .wrapper-login {
+    display: flex;
+    margin: 0 auto;
+    padding: 5vh 0;
+    border: 1px solid grey;
+    background: #fff;
+    width: 400px;
+    justify-content: space-evenly; }
+    .login .wrapper-login form {
+      display: inline-block;
+      width: 50%; }
+      .login .wrapper-login form input {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        border-bottom: 1px solid grey;
+        margin: 15px 0;
+        padding: 3px 5px;
+        font-size: 14px; }
+      .login .wrapper-login form button {
+        position: relative;
+        top: -50px;
+        left: 85%;
+        font-size: 25px;
+        font-weight: 900; }
+    .login .wrapper-login .wrapper-logo {
+      display: inline-block; }
+      .login .wrapper-login .wrapper-logo img {
+        display: block;
+        width: 75px;
+        margin: 0 auto;
+        height: auto; }
+      .login .wrapper-login .wrapper-logo .google-login {
+        margin-top: 10px; }

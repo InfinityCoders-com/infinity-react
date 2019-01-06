@@ -137,3 +137,13 @@ export const invoice = [
         "duration": ''
     }
 ];
+
+export const appHeader = [{
+    id: 'home',
+    name: '',
+    appId: 0
+},{
+    id: 'expense-dealer',
+    name: 'Expense Dealer',
+    appId: 1,
+}];

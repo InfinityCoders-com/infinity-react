@@ -6,6 +6,11 @@ body {
   padding: 0;
   font-family: sans-serif; }
 
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0 15px; }
+
 .invoice-print {
   min-height: 100vh;
   padding: 20px 1vw; }
@@ -39,7 +44,7 @@ body {
   height: 800px;
   z-index: 1;
   opacity: 1;
-  background: url("../img/domain-hosting.jpg") center center no-repeat;
+  background: url("../assets/img/domain-hosting.jpg") center center no-repeat;
   background-size: cover;
   animation: bg-image-fade 1s linear 2s forwards; }
 
@@ -147,3 +152,10 @@ th, td {
   background: #fff;
   -webkit-clip-path: polygon(10% 0%, 50% 60%, 90% 0%);
   clip-path: polygon(10% 0%, 50% 60%, 90% 0%); }
+
+input,
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+  border-radius: none; }

@@ -1,11 +1,51 @@
 @import '../config/colors.scss';
 
+header {
+    background: $dark-blue;
+    width: auto;
+    .header {
+        display: block;
+        color: $white;
+        padding: 15px 0;
+        img.logo {
+            display: inline-block;
+            width: 50px;
+            height: auto;
+            margin: 0 5vw 0 1vw;
+        }
+        h2 {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+        span.logout {
+            float: right;
+            margin: 20px 100px 0 0;
+        }
+    }
+}
+
 .menu-icon {
-    position: absolute;
+    position: fixed;
     right: 50px;
     top: 50px;
     z-index: 99999;
     transform: scale(.6);
+    padding: 10px;
+    &:before {
+        content: '';
+        display: none;
+        height: 80px;
+        width: 80px;
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        position: absolute;
+        top: -5px;
+        background: rgba(255,255,255,0.3);
+        left: -5px;
+        z-index: 999997;
+        border-radius: 50%;
+    }
     .wrapper-menu {
         width: 50px;
         height: 50px;
@@ -46,7 +86,7 @@
     }  
 }
 
-header {
+section.menu {
     position: fixed;
     top: 0;
     right: 0;
@@ -54,51 +94,139 @@ header {
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: $white;
     display: none;
     flex-wrap: wrap;
+    z-index: 99998;
     &.open {
         display: flex;
     }
     > div {
+        background: linear-gradient(to right, $white 50%, transparent 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all .5s ease-out;
         flex-basis: 50vw;
         height: 50vh;
         padding-top: 20vh;
         padding-bottom: 20vh;
         text-align: center;
+        border-right: 1px solid rgba(120, 120, 120, 0.2);
+        border-bottom: 1px solid rgba(120, 120, 120, 0.2);
+        animation: slide-left 1s linear 2s forwards;
         &.flip-container {
             padding: 0;
             perspective: 1000px;
             &:hover .flipper {
+                display: none;
                 transform: rotateY(180deg);
+                // -webkit-animation: flip-2-ver-left-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                // animation: flip-2-ver-left-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
             }
             &.hover .flipper {
-                transform: rotateY(180deg);
+                // transform: rotateY(180deg);
             }
             .flipper {
                 height: 100%;
                 width: 100%;
-                transition: 0.6s;
+                transition-duration: 0.6s;
+                transition-delay: 0.3s;
                 transform-style: preserve-3d;
                 position: relative;
             }
             .front, .back {
+                display: none;
                 height: 100%;
                 width: 100%;
-                backface-visibility: hidden;            
+                backface-visibility: hidden;
                 position: absolute;
                 top: 0;
                 left: 0;
             }
             .front {
-                background: black;
+                // background: $white;
                 z-index: 2;
+                // -webkit-animation: flip-2-ver-right-2 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                // animation: flip-2-ver-right-2 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
                 transform: rotateY(0deg);
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             .back {
-                background: green;
+                // -webkit-animation: flip-2-ver-left-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+                // animation: flip-2-ver-left-1 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
                 transform: rotateY(180deg);
+                img {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
 }
+/*
+@-webkit-keyframes flip-2-ver-left-1 {
+    0% {
+        -webkit-transform: translateX(0) rotateY(0);
+        transform: translateX(0) rotateY(0);
+        -webkit-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+    }
+    100% {
+        -webkit-transform: translateX(-100%) rotateY(180deg);
+        transform: translateX(-100%) rotateY(180deg);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+}
+@keyframes flip-2-ver-left-1 {
+    0% {
+        -webkit-transform: translateX(-100%) rotateY(180deg);
+        transform: translateX(-100%) rotateY(180deg);
+        -webkit-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+    100% {
+        -webkit-transform: translateX(0%) rotateY(0deg);
+        transform: translateX(0%) rotateY(0deg);
+        -webkit-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+    }
+}
+@-webkit-keyframes flip-2-ver-right-2 {
+    0% {
+        -webkit-transform: translateX(0) rotateY(0);
+        transform: translateX(0) rotateY(0);
+        -webkit-transform-origin: 100% 50%;
+        transform-origin: 100% 50%;
+    }
+    100% {
+        -webkit-transform: translateX(100%) rotateY(180deg);
+        transform: translateX(100%) rotateY(180deg);
+        -webkit-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+    }
+}
+@keyframes flip-2-ver-right-2 {
+    0% {
+        -webkit-transform: translateX(0) rotateY(0);
+        transform: translateX(0) rotateY(0);
+        -webkit-transform-origin: 100% 50%;
+        transform-origin: 100% 50%;
+    }
+    100% {
+        -webkit-transform: translateX(100%) rotateY(180deg);
+        transform: translateX(100%) rotateY(180deg);
+        -webkit-transform-origin: 0% 50%;
+        transform-origin: 0% 50%;
+    }
+}
+*/
+// @keyframes slide-left {
+//     from {
+//         background-position: right bottom;
+//     }
+//     to {
+//         background-position: left bottom;
+//     }
+// }

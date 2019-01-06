@@ -10,9 +10,7 @@ import { isAuthenticated } from '../../general/helper';
 class Expenses extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props, '=-===========================')
         if(!isAuthenticated()) { this.props.history.push('/login') }
-        // this.props
     }
     render(){
         return (

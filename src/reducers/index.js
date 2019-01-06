@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux';
+import authReducer from '../modules/Auth/reducer';
 
 export const makeRootReducer = (asyncReducers) => {
   return combineReducers({
     // Will import and use reducer here 
     ...asyncReducers,
+    authReducer
   })
 }
 

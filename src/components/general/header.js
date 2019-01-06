@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../styles/general/header.css';
+import icLogo from '../../assets/logo-ic.svg';
 
 class Header extends Component {
     constructor(props) {
@@ -8,33 +8,19 @@ class Header extends Component {
             menu: ''
         };
     }
+
     render() {
         const { menu } = this.state;
         return (
-            <React.Fragment>
-                <div className='menu-icon'>
-                    <div className={`wrapper-menu ${menu}`} onClick={e => this.setState({ menu: menu === 'open' ? '' : 'open' })}>
-                        <div className="line-menu half start"></div>
-                        <div className="line-menu"></div>
-                        <div className="line-menu half end"></div>
+            <header className='row'>
+                <div className='container-fluid'>
+                    <div className='header'>
+                        <img src={icLogo} className='logo' />
+                        <h2>Expense Manager</h2>
+                        <span className='logout'>Logout</span>
                     </div>
                 </div>
-                <header className={menu}>
-                    <div className="flip-container" onTouchStart={e => console.log(e.target)}>
-                        <div className="flipper">
-                            <div className="front">
-                                Home
-                            </div>
-                            <div className="back">
-                                back
-                            </div>
-                        </div>
-                    </div>
-                    <div>Expense Dealer</div>
-                    <div>Expense Dealer</div>
-                    <div>Expense Dealer</div>
-                </header>
-            </React.Fragment>
+            </header>
         );
     }
 }
