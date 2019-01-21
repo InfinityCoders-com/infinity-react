@@ -7,6 +7,7 @@ import App from './modules/app/'
 import Login from './modules/Auth/';
 import Expenses from './modules/Expenses/';
 import Graph from './modules/Graph/';
+import Mail from './modules/Mail/';
 
 const Routes = () => {
     const store = createStore();
@@ -15,10 +16,11 @@ const Routes = () => {
             <Router>
                 <App>
                     <Switch>
-                        <Route exact path="/"  component={Expenses} />
+                        <Route exact path="/" component={Expenses} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/expenses" component={Expenses} />
                         <Route exact path="/graph" component={Graph} />
+                        <Route exact path="/mail" component={Mail} />
                     </Switch>
                 </App>
             </Router>
