@@ -4,39 +4,12 @@ import { withRouter } from "react-router";
 import { bindActionCreators } from 'redux';
 import '../../styles/general/header.css';
 import _ from 'lodash';
-import home from '../../assets/img/jpg/home.jpg';
-import expense from '../../assets/img/jpg/expense.jpg';
 
 class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
             menu: '',
-            listItems: [{
-                name: 'HOME',
-                image: home,
-                link: '/'
-            },{
-                name: 'LOGIN',
-                image: expense,
-                link: '/login'
-            },{
-                name: 'MAILER',
-                image: expense,
-                link: '/mail'
-            },{
-                name: 'EXPENSE DEALER',
-                image: expense,
-                link: '/'
-            },{
-                name: 'PROJECTS',
-                image: expense,
-                link: '/'
-            },{
-                name: 'ACCESS',
-                image: expense,
-                link: '/'
-            }]
         };
         this.navigate = this.navigate.bind(this);
     }
@@ -45,9 +18,14 @@ class Menu extends Component {
         this.props.history.push(val.link);
     }
     renderCards() {
-        const headerItemsList = this.state.listItems;
+        const headerItemsList = this.props.menu.data;
         return _.map(headerItemsList, (val, i) => 
-            <div className="column" onTouchStart="this.classList.toggle('hover');">
+            <div
+                className={`column ${Math.ceil(headerItemsList.length / 2) > i ? 'row-one' : '' }`}
+                onTouchStart={ e => this.classList.toggle('hover')}
+                onClick={e => this.navigate(val)}
+                key={i}
+            >
                 <div className="contain">
                     <div className="front">
                         <div className="inner">
@@ -66,10 +44,11 @@ class Menu extends Component {
     }
     render() {
         const { menu } = this.state;
+        console.log(this.props);
         return (
             <React.Fragment>
-                <div className='menu-icon'>
-                    <div className={`wrapper-menu ${menu}`} onClick={e => this.setState({ menu: menu === 'open' ? '' : 'open' })}>
+                <div className='menu-icon' onClick={e => this.setState({ menu: menu === 'open' ? '' : 'open' })}>
+                    <div className={`wrapper-menu ${menu}`}>
                         <div className="line-menu half start"></div>
                         <div className="line-menu"></div>
                         <div className="line-menu half end"></div>
@@ -83,7 +62,7 @@ class Menu extends Component {
     }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => ({ menu: state.appData.menu });
 
 const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
 

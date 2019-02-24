@@ -1,0 +1,70 @@
+@import './config/colors.scss';
+@import './config/size.scss';
+
+.hosting-module {
+    .banner-hosting {
+        background-image: url('../assets/img/jpg/data-strings.jpg');
+        background-position: center center;
+        background-size: 100% 100%;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h1 {
+            font-family: 'Source Code Pro';
+            font-size: 7vw;
+            color: $white;
+            text-shadow: 0px 0px 15px $black;
+        }
+    }
+    .payment-card {
+        padding: 10vw 0;
+        .wrapper {
+            font-family: 'Source Code Pro';
+            text-align: center;
+            width: 45vw;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 8px;
+            box-shadow: $box-shadow;
+            padding: 6vw 2vw;
+            h1 {
+                font-size: 24px;
+                padding: 5px 0px;
+            }
+            h2 {
+                margin: 5px 0;
+            }
+            button {
+                padding: 10px 25px;
+                margin: 20px 0;
+                border-radius: $border-radius-xs;
+                background-color: $light-yellow;
+            }
+            ul {
+                list-style: none;
+                text-align: left;
+                li {
+                    color: $grey;
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding: 5px 0 5px 16px;
+                    &:before {
+                        content: '\2713 ';
+                        display: block;
+                        height: 0;
+                        width: 15px;
+                        color: $green;
+                        margin-left: -15px;
+                    }
+                }
+            }
+            @media screen and ( max-width: 768px ) {
+                width: 40vw;
+            }
+            @media screen and ( max-width: 540px ) {
+                width: 50vw;
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@ header {
             width: 50px;
             height: auto;
             margin: 0 5vw 0 1vw;
+            cursor: pointer;
         }
         h2 {
             display: inline-block;
@@ -111,8 +112,8 @@ section.menu {
     }
     &.cols {
         .column {
-            width: 25vw;
-            margin: 1px 0 0 1px;
+            width: 33.22vw;
+            margin: 0.5px 0.5px 0.5px 0.5px;
             cursor: pointer;
             flex-grow:1;
             .contain {
@@ -125,7 +126,9 @@ section.menu {
     }
     .front,
     .back {
-        background-size: cover;
+        min-height: 50vh;
+        height: auto;
+        background-size: 100% 100%;
         background-position: center;
         -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
         transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
@@ -135,17 +138,33 @@ section.menu {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         text-align: center;
-        min-height: 50vh;
-        height: auto;
         border-radius: 5px;
         color: #fff;
         font-size: 1.5rem;
+        &.v-one {
+            min-height: 100vh;
+        } &.v-two {
+            min-height: 50vh;
+        } &.v-three {
+            min-height: 33.22vh;
+        } &.v-four {
+            min-height: 25vh;
+        }
+        &.h-one {
+            width: 100vw;
+        } &.h-two {
+            width: 50vw;
+        } &.h-three {
+            width: 33.22vw;
+        } &.h-four {
+            width: 25vw;
+        }
     }
     .back {
-        background: #cedce7;
-        background: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-        background: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
-        background: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+        background-color: #cedce7;
+        background-image: -webkit-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+        background-image: -o-linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
+        background-image: linear-gradient(45deg,  #cedce7 0%,#596a72 100%);
     }
 
     .front:after {

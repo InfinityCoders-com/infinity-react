@@ -1,0 +1,56 @@
+.hosting-module .banner-hosting {
+  background-image: url("../assets/img/jpg/data-strings.jpg");
+  background-position: center center;
+  background-size: 100% 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .hosting-module .banner-hosting h1 {
+    font-family: 'Source Code Pro';
+    font-size: 7vw;
+    color: #fff;
+    text-shadow: 0px 0px 15px #000; }
+
+.hosting-module .payment-card {
+  padding: 10vw 0; }
+  .hosting-module .payment-card .wrapper {
+    font-family: 'Source Code Pro';
+    text-align: center;
+    width: 45vw;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 0 1px 0 rgba(128, 128, 128, 0.4);
+    padding: 6vw 2vw; }
+    .hosting-module .payment-card .wrapper h1 {
+      font-size: 24px;
+      padding: 5px 0px; }
+    .hosting-module .payment-card .wrapper h2 {
+      margin: 5px 0; }
+    .hosting-module .payment-card .wrapper button {
+      padding: 10px 25px;
+      margin: 20px 0;
+      border-radius: 3px;
+      background-color: #fee3b5; }
+    .hosting-module .payment-card .wrapper ul {
+      list-style: none;
+      text-align: left; }
+      .hosting-module .payment-card .wrapper ul li {
+        color: grey;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 5px 0 5px 16px; }
+        .hosting-module .payment-card .wrapper ul li:before {
+          content: '\2713 ';
+          display: block;
+          height: 0;
+          width: 15px;
+          color: #00b67a;
+          margin-left: -15px; }
+    @media screen and (max-width: 768px) {
+      .hosting-module .payment-card .wrapper {
+        width: 40vw; } }
+    @media screen and (max-width: 540px) {
+      .hosting-module .payment-card .wrapper {
+        width: 50vw; } }

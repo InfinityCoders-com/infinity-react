@@ -24,7 +24,6 @@ class Login extends Component {
         this.props.failedLogin({ data: null, error: 1, message: response.error });
     }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps, '999999999999999')
         if(!_.isEqual(nextProps.login, this.props.login)) {
             if(nextProps.login.isSuccess) {
                 localStorage.setItem('auth', JSON.stringify(nextProps.login.data))
@@ -41,7 +40,6 @@ class Login extends Component {
     }
     render() {
         const { user, pass } = this.state;
-        console.log(this.props, 'sauth k prop =-==========================')
         return (
             <div className='login'>
                 <div className='wrapper-login'>

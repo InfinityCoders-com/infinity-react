@@ -26,7 +26,6 @@ class Expenses extends Component {
 
 
 export function mapStateToProps(state) {
-    console.log(state)
     return {
         playerList: state
     };
